@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Tempreture Converter</title>
+    <!-- fevicon -->
+    <link rel="icon" type="image" href="img/feicon.jpg" />
+    <!-- my css -->
+    <!-- <link rel="stylesheet" href="Tem.css" /> -->
+    <!-- googlefont  -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <!-- <link href="https://fonts.googleapis.com/css2?family=Tilt+Prism&display=swap" rel="stylesheet"> -->
+    <!-- <script defer src="Tem.js"></script> -->
+    <style>
+        body
+{
+    padding: 100px 100px;
+    background-color: rgb(212, 0, 255);
+}
+ h1
+{
+    text-align: center;
+    font-family: cursive;
+    /* color: rgb(94, 10, 10); */
+    color: aqua;
+}
+
+#container
+{
+    text-align: center;
+    background-color: rgb(63, 63, 107);
+    padding:50px;
+    font-weight: bold;
+    font-size:x-large;
+    font-family: cursive;
+    /* color: rgb(94, 10, 10);   */
+    color: aqua;
+}
+
+.input
+{
+    display: inline-block;
+}
+.inp
+{
+    text-align: center;
+    font-size:xx-large;
+    font-weight: bold;
+    padding: 8px 10px;
+    margin: 15px;
+    background-color: aqua;
+}
+    </style>
+  </head>
+  <body>
+    <h1>Tempreture Converter</h1>
+    <div id="container">
+      <section class="input">
+        <label for="content">Celsius</label><br />
+        <input type="number" value="0" id="cel" class="inp" />
+      </section>
+      <section class="input">
+        <label for="content">Fahrenheit</label><br />
+        <input type="number" value="32" id="fer" class="inp" />
+      </section>
+    </div>
+    <script>
+      let cel = document.getElementById("cel");
+      let fer = document.getElementById("fer");
+      cel.addEventListener("input", celsius);
+      fer.addEventListener("input", fehruhight);
+
+      function celsius() {
+        let c = cel.value;
+        let f = (c * 9) / 5 + 32;
+        if (!Number.isInteger(f)) {
+          f = f.toFixed(2);
+        }
+        fer.value = f;
+      }
+      function fehruhight() {
+        let f = this.value;
+        let c = ((f - 32) * 5) / 9;
+        if (!Number.isInteger(c)) {
+          c = c.toFixed(2);
+        }
+        cel.value = c;
+      }
+    </script>
+  </body>
+</html>
